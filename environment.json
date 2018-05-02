@@ -1,0 +1,46 @@
+{
+  "id": "cb6b6253-5f8a-46fa-d6f6-ba40b74f8ae8",
+  "name": "Demo_Airwallex",
+  "values": [
+    {
+      "enabled": true,
+      "key": "host_name",
+      "value": "http://preview.airwallex.com",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "host_port",
+      "value": "30001",
+      "type": "text"
+    },
+    {
+      "enabled": false,
+      "key": "account_name",
+      "value": "John Smith",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "account_number",
+      "value": "123",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "swift_code",
+      "value": "ICBCUSBJ",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "aba",
+      "value": "11234A123",
+      "type": "text"
+    }
+  ],
+  "timestamp": 1525175153931,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2018-05-01T11:45:56.455Z",
+  "_postman_exported_using": "Postman/5.5.2"
+}
