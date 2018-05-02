@@ -28,7 +28,7 @@ To import environment.json follow the steps below:
 
 # Information about the tests
 
-All tests are captured under the “Test_Airwallex” collection heading. Each testable scenario is captured as a separated POST request with a header, request body and tests under “Tests” tab that parse and validate the response. The assertions are easier to understand as it’s been written in Javascript.
+All tests are captured under the “Test_Airwallex” collection heading. Each testable scenario is captured as a separate POST request with a header, request body and tests under “Tests” tab that parse and validate the response. The assertions are easier to understand as it’s been written in Javascript.
 
 
 # Running the tests:
@@ -39,21 +39,21 @@ Option 1:
 
 1. Using GUI Collection Runner: Once the collection is imported in Postman utility, you can expand the > accordion and click on the “Run” option to open the Collection Runner.
 
-2. Click on the “Run <collection name>” to kick off the tests.
+2. Click on the “Run ‘Name of the collection’” to kick off the tests.
 
 Option 2:
 
-1. Install Newman CLI globally, then navigate to the where you saved the collection.
+1. Install Newman CLI globally, then navigate to the path where you have saved the collection.
 
-npm install –g newman
+	npm install –g newman
 
 2. Go to the path where the files are cloned from git.
 3. Run the postman collection using the command below:
 
-newman run Test_Airwallex_collection.json -e environment.json --reporters cli,html --reporter-html-export Test_Report.htm
+	newman run Test_Airwallex_collection.json -e environment.json --	reporters cli,html --reporter-html-export Test_Report.htm
 
-4. After the tests are done, the results can be viewed either on the command line or a report (Test_Report.htm) is created within the folder.
+4. After the tests are executed, the results can be viewed either on the command line or a from the generated report (Test_Report.htm) within the folder.
 
-NOTE: Using Newman CLI, postman collections can be hooked up with build systems seamlessly.
+NOTE: Using Newman CLI, postman collections can be hooked up with build systems like Jenkins seamlessly.
 
 
