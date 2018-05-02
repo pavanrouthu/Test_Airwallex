@@ -7,6 +7,384 @@
 	},
 	"item": [
 		{
+			"name": "Save Bank Details - When country is AU and Payment Method is SWIFT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7521b64b-8dfa-45de-854a-111863cbaf59",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Verify the bank details are saved successfully\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCAUBJ\",\n\t\"bsb\":\"123456\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Save Bank Details - When country is AU and Payment Method is LOCAL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fef5d6e-f887-457e-981b-888c236eface",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Verify the bank details are saved successfully\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"LOCAL\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"1234567\",\n\t\"bsb\":\"123456\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Save Bank Details - When country is US and Payment Method is SWIFT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf7ec49e-7e0e-44a6-a17d-29953b50f9c5",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Verify the bank details are saved successfully\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123\",\n\t\"swift_code\": \"ICBCUSBJ\",\n\t\"aba\": \"11234A123\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Save Bank Details - When country is US and Payment Method is LOCAL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "60ca7a2b-1ffe-4cf5-9fb0-73fa29364bf0",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Verify the bank details are saved successfully\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"LOCAL\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"1234567\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Save Bank Details - When country is CN and Payment Method is SWIFT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "706a168c-93c7-4ae0-aca3-5451b58a40e6",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Verify the bank details are saved successfully\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"CN\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCCNBJ\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Save Bank Details - When country is CN and Payment Method is LOCAL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ca5d3ee1-84cc-4a15-bd72-e15589e6e627",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Verify the bank details are saved successfully\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"LOCAL\",\n\t\"bank_country_code\": \"CN\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"12345678\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario when country code is other than US, AU or CN and Payment Method is LOCAL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ee9ab4cd-47a3-438a-9555-fb6f46ceb1bd",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Verify the error message when country code is not in US, AU or CN\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\",  \"'bank_country_code' is required, and should be one of 'US', 'AU', or 'CN'\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"LOCAL\",\n\t\"bank_country_code\": \"NZ\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario when country code is other than US, AU or CN and Payment Method is SWIFT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "74fb5e59-9f09-4323-a42f-aff0a13590fc",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Verify the error message when country code is not in US, AU or CN\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\",  \"'bank_country_code' is required, and should be one of 'US', 'AU', or 'CN'\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"NZ\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
 			"name": "Scenario when Payment_Method field is blank",
 			"event": [
 				{
@@ -101,12 +479,12 @@
 			"response": []
 		},
 		{
-			"name": "Verify the error message for AU, if 5th and 6th character of swift code doesn't match the country code",
+			"name": "Scenario to check when BSB is not available for AU",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "b8fc037f-2e4b-443a-bbcf-26fdb9b78b9f",
+						"id": "9face861-fc90-4939-a3e6-734fd3b4fd70",
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
@@ -114,8 +492,8 @@
 							"    pm.response.to.have.status(400);",
 							"});",
 							"",
-							"pm.test(\"Verify the error message when 5th and 6th character of swift code doesn't match the country code (AU)\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"error\", \"The swift code is not valid for the given bank country code: AU\");",
+							"pm.test(\"Verify the error message when BSB is not present for AU\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\", \"'bsb' is required when bank country code is 'AU'\");",
 							"});"
 						]
 					}
@@ -131,7 +509,242 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCINBJ\",\n\t\"bsb\":\"123456\"\n}"
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCAUBJ\",\n\t\"bsb\":\"\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario to check when BSB is less than 6 characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "60352576-6de8-4606-8184-1313d32fb1cc",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Verify the error message when BSB is less than 6 characters\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\", \"Length of 'bsb' should be 6\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCAUBJ\",\n\t\"bsb\":\"12345\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario to check when BSB is greater than 6 characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "60352576-6de8-4606-8184-1313d32fb1cc",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Verify the error message when BSB is less than 6 characters\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\", \"Length of 'bsb' should be 6\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCAUBJ\",\n\t\"bsb\":\"12345678\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario to check when ABA is not available for US",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9a93df20-a2fb-4067-a354-3a5a3bae5454",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Verify the error message when ABA is not available for US\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123\",\n\t\"swift_code\": \"ICBCUSBJ\",\n\t\"aba\": \"\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario to check when ABA is less than 9 characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ffed5cfa-58b3-4330-acf9-42c51252ce7b",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Verify the error message when BSB is less than 9 characters\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\", \"Length of 'aba' should be 9\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123\",\n\t\"swift_code\": \"ICBCUSBJ\",\n\t\"aba\": \"12345678\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario to check when ABA is greater than 9 characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ffed5cfa-58b3-4330-acf9-42c51252ce7b",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Verify the error message when BSB is less than 9 characters\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\", \"Length of 'aba' should be 9\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123\",\n\t\"swift_code\": \"ICBCUSBJ\",\n\t\"aba\": \"1234567890\"\n}"
 				},
 				"url": {
 					"raw": "{{host_name}}:{{host_port}}/bank",
@@ -200,7 +813,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "dac091e9-eecc-400e-9f77-b1bed6a66732",
+						"id": "4bd694e2-4af7-4484-90d1-a3c9af1e362b",
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
@@ -209,7 +822,7 @@
 							"});",
 							"",
 							"pm.test(\"Verify the bank details are saved successfully\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"error\", \"Bank details saved\");",
+							"    pm.expect(jsonData).to.have.property(\"success\", \"Bank details saved\");",
 							"});"
 						]
 					}
@@ -247,7 +860,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ba2fe8c7-de20-4261-ba18-52d963cca53c",
+						"id": "4787be99-b396-4d4f-be1b-e21a6f189104",
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
@@ -256,7 +869,7 @@
 							"});",
 							"",
 							"pm.test(\"Verify the bank details are saved successfully\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"error\",  \"Bank details saved\");",
+							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
 							"});"
 						]
 					}
@@ -319,7 +932,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCAUSWQ\",\n\t\"bsb\":\"123456\"\n}"
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCAUSWQB\",\n\t\"bsb\":\"123456\"\n}"
 				},
 				"url": {
 					"raw": "{{host_name}}:{{host_port}}/bank",
@@ -367,6 +980,197 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCAUWERFDA\",\n\t\"bsb\":\"123456\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario to check swift code is mandatory when payment method is SWIFT and is in CN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "82e1f04b-9e68-4a76-94b2-9f7115cb08cb",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Verify the error message when swift code is not provided for country code CN\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\", \"'swift_code' is required when payment method is 'SWIFT'\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"CN\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"1234567\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario to check swift code is mandatory when payment method is SWIFT and is in US",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9826243e-68d2-43bb-9181-ca74ccd40501",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Verify the error message when swift code is not provided for country code US\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\", \"'swift_code' is required when payment method is 'SWIFT'\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123\",\n\t\"aba\": \"11234A123\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario to check swift code is mandatory when payment method is SWIFT and is in AU",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c4a9a316-4bd7-4362-b00f-cf0614fe6636",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Verify the error message when swift code is not provided for country code AU\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\", \"'swift_code' is required when payment method is 'SWIFT'\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"bsb\":\"123456\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Verify the error message for AU, if 5th and 6th character of swift code doesn't match the country code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b8fc037f-2e4b-443a-bbcf-26fdb9b78b9f",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Verify the error message when 5th and 6th character of swift code doesn't match the country code (AU)\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"error\", \"The swift code is not valid for the given bank country code: AU\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCINBJ\",\n\t\"bsb\":\"123456\"\n}"
 				},
 				"url": {
 					"raw": "{{host_name}}:{{host_port}}/bank",
@@ -524,6 +1328,53 @@
 			"response": []
 		},
 		{
+			"name": "Scenario when Account Name field has special characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "586da5f3-1fee-408f-b049-39b74980bd5b",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Verify the bank details are saved successfully\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"Tấn Dũng\",\n\t\"account_number\": \"1231234\",\n\t\"swift_code\": \"ICBCAUBJ\",\n\t\"bsb\": \"11234A\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
 			"name": "Scenario when Account Name field is less than 2 characters long",
 			"event": [
 				{
@@ -649,6 +1500,53 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"\",\n\t\"swift_code\": \"ICBCUSBJ\",\n\t\"aba\": \"11234A123\"\n}"
+				},
+				"url": {
+					"raw": "{{host_name}}:{{host_port}}/bank",
+					"host": [
+						"{{host_name}}"
+					],
+					"port": "{{host_port}}",
+					"path": [
+						"bank"
+					]
+				},
+				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
+			},
+			"response": []
+		},
+		{
+			"name": "Scenario when Account Number field has special characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "70edd41e-eed0-40a4-b9c2-fec58206fada",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.test(\"Status code should be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Verify the bank details are saved successfully\", function () {",
+							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123_ % @ ! $ * ~\",\n\t\"swift_code\": \"ICBCUSBJ\",\n\t\"aba\": \"11234A123\"\n}"
 				},
 				"url": {
 					"raw": "{{host_name}}:{{host_port}}/bank",
@@ -884,575 +1782,6 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"CN\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"1234567\",\n\t\"swift_code\": \"ICBCCNBJ\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "Scenario to check swift code is mandatory when payment method is SWIFT and is in CN",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "82e1f04b-9e68-4a76-94b2-9f7115cb08cb",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 400\", function () {",
-							"    pm.response.to.have.status(400);",
-							"});",
-							"",
-							"pm.test(\"Verify the error message when swift code is not provided for country code CN\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"error\", \"'swift_code' is required when payment method is 'SWIFT'\");",
-							"});",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"CN\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"1234567\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "Scenario to check swift code is mandatory when payment method is SWIFT and is in US",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "9826243e-68d2-43bb-9181-ca74ccd40501",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 400\", function () {",
-							"    pm.response.to.have.status(400);",
-							"});",
-							"",
-							"pm.test(\"Verify the error message when swift code is not provided for country code US\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"error\", \"'swift_code' is required when payment method is 'SWIFT'\");",
-							"});",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123\",\n\t\"aba\": \"11234A123\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "Scenario to check swift code is mandatory when payment method is SWIFT and is in AU",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "c4a9a316-4bd7-4362-b00f-cf0614fe6636",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 400\", function () {",
-							"    pm.response.to.have.status(400);",
-							"});",
-							"",
-							"pm.test(\"Verify the error message when swift code is not provided for country code AU\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"error\", \"'swift_code' is required when payment method is 'SWIFT'\");",
-							"});",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"bsb\":\"123456\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "Save Bank Details - Positive Scenario with Payment_Method as LOCAL",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "4fc15201-30ca-4c4d-8c76-df1388269870",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Verify the bank details are saved successfully\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123\",\n\t\"swift_code\": \"ICBCUSBJ\",\n\t\"aba\": \"11234A123\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "Save Bank Details - When country is AU and Payment Method is SWIFT",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "7521b64b-8dfa-45de-854a-111863cbaf59",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Verify the bank details are saved successfully\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCAUBJ\",\n\t\"bsb\":\"123456\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "Save Bank Details - When country is AU and Payment Method is LOCAL",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "3fef5d6e-f887-457e-981b-888c236eface",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Verify the bank details are saved successfully\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"LOCAL\",\n\t\"bank_country_code\": \"AU\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"1234567\",\n\t\"bsb\":\"123456\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "Save Bank Details - When country is US and Payment Method is SWIFT",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "bf7ec49e-7e0e-44a6-a17d-29953b50f9c5",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Verify the bank details are saved successfully\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123\",\n\t\"swift_code\": \"ICBCUSBJ\",\n\t\"aba\": \"11234A123\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "Save Bank Details - When country is US and Payment Method is LOCAL",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "60ca7a2b-1ffe-4cf5-9fb0-73fa29364bf0",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Verify the bank details are saved successfully\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"LOCAL\",\n\t\"bank_country_code\": \"US\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"1234567\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "Save Bank Details - When country is CN and Payment Method is LOCAL",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "ca5d3ee1-84cc-4a15-bd72-e15589e6e627",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Verify the bank details are saved successfully\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"LOCAL\",\n\t\"bank_country_code\": \"CN\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"12345678\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "Save Bank Details - When country is CN and Payment Method is SWIFT",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "706a168c-93c7-4ae0-aca3-5451b58a40e6",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Verify the bank details are saved successfully\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"success\",  \"Bank details saved\");",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"CN\",\n\t\"account_name\": \"John Smith\",\n\t\"account_number\": \"123456789\",\n\t\"swift_code\": \"ICBCCNBJ\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "When country code is other than US, AU or CN and Payment Method is LOCAL",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "ee9ab4cd-47a3-438a-9555-fb6f46ceb1bd",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 400\", function () {",
-							"    pm.response.to.have.status(400);",
-							"});",
-							"",
-							"pm.test(\"Verify the error message when country code is not in US, AU or CN\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"error\",  \"'bank_country_code' is required, and should be one of 'US', 'AU', or 'CN'\");",
-							"});",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"LOCAL\",\n\t\"bank_country_code\": \"NZ\"\n}"
-				},
-				"url": {
-					"raw": "{{host_name}}:{{host_port}}/bank",
-					"host": [
-						"{{host_name}}"
-					],
-					"port": "{{host_port}}",
-					"path": [
-						"bank"
-					]
-				},
-				"description": "This is a positive scenario to send all valid details to the endpoint to get success response."
-			},
-			"response": []
-		},
-		{
-			"name": "When country code is other than US, AU or CN and Payment Method is SWIFT",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "74fb5e59-9f09-4323-a42f-aff0a13590fc",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"pm.test(\"Status code should be 400\", function () {",
-							"    pm.response.to.have.status(400);",
-							"});",
-							"",
-							"pm.test(\"Verify the error message when country code is not in US, AU or CN\", function () {",
-							"    pm.expect(jsonData).to.have.property(\"error\",  \"'bank_country_code' is required, and should be one of 'US', 'AU', or 'CN'\");",
-							"});",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"payment_method\": \"SWIFT\",\n\t\"bank_country_code\": \"NZ\"\n}"
 				},
 				"url": {
 					"raw": "{{host_name}}:{{host_port}}/bank",
