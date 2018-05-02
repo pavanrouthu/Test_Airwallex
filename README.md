@@ -31,7 +31,7 @@ To import environment.json follow the steps below:
 All tests are captured under the “Test_Airwallex” collection heading. Each testable scenario is captured as a separated POST request with a header, request body and tests under “Tests” tab that parse and validate the response. The assertions are easier to understand as it’s been written in Javascript.
 
 
-#Running the tests:
+# Running the tests:
 
 There are two options to run the tests, either by using the “Collection Runner” utility from the GUI or by using Newman CLI (a command line test runner).
 
