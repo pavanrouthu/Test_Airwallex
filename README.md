@@ -1,4 +1,4 @@
-# Test_Airwallex
+# check-API-Endpoint
 
 
 This repository contains a postman collection with series of tests to check an API service end point.
@@ -15,14 +15,14 @@ Step 1:
 git clone https://github.com/pavanrouthu/Test_Airwallex.git
 
 Step 2:
-Open the Postman utility and select the Import option. Select the “Import File” tab from the dialog and select Test_Airwallex_collection.json collection.
+Open the Postman utility and select theÂ ImportÂ option. Select theÂ â€œImport Fileâ€Â tab from the dialog and select Test_Airwallex_collection.json collection.
 
 Step 3:
-Also, import “environment.json” file into Postman utility to get access to the URL. URL has been externalized from the tests so that service endpoint url is configurable and same tests can be run in different environments just by changing the value of “host_name” and “host_port” fields.
+Also, import â€œenvironment.jsonâ€ file into Postman utility to get access to the URL. URL has been externalized from the tests so that service endpoint url is configurable and same tests can be run in different environments just by changing the value of â€œhost_nameâ€ and â€œhost_portâ€ fields.
 
 To import environment.json follow the steps below:
 
-1. From Postman utility, navigate to “Manage Environments”
+1. From Postman utility, navigate to â€œManage Environmentsâ€
 2. Click on Import button
 3. Choose environment.json file and the file gets imported into Postman. 
 
@@ -30,7 +30,7 @@ Ensure imported environment is selected when running the scripts. Otherwise the 
 
 # Information about the tests
 
-All tests are captured under the “Test_Airwallex” collection heading. Each testable scenario is captured as a separate POST request with a header, request body and tests under “Tests” tab that parse and validate the response. The assertions are easier to understand as it’s been written in Javascript.
+All tests are captured under the â€œTest_Airwallexâ€ collection heading. Each testable scenario is captured as a separate POST request with a header, request body and tests under â€œTestsâ€ tab that parse and validate the response. The assertions are easier to understand as itâ€™s been written in Javascript.
 
 The following 38 scenarios have been captured and validated as part of the postman collection:
 
@@ -76,19 +76,19 @@ The following 38 scenarios have been captured and validated as part of the postm
 
 # Running the tests:
 
-There are two options to run the tests, either by using the “Collection Runner” utility from the GUI or by using Newman CLI (a command line test runner).
+There are two options to run the tests, either by using the â€œCollection Runnerâ€ utility from the GUI or by using Newman CLI (a command line test runner).
 
 Option 1:
 
-1. Using GUI Collection Runner: Once the collection is imported in Postman utility, you can expand the > accordion and click on the “Run” option to open the Collection Runner.
+1. Using GUI Collection Runner: Once the collection is imported in Postman utility, you can expand the > accordion and click on the â€œRunâ€ option to open the Collection Runner.
 
-2. Click on the “Run ‘Name of the collection’” to kick off the tests.
+2. Click on the â€œRun â€˜Name of the collectionâ€™â€ to kick off the tests.
 
 Option 2:
 
 1. Install Newman CLI globally, then navigate to the path where you have saved the collection.
 
-	npm install –g newman
+	npm install â€“g newman
 
 2. Go to the path where the files are cloned from git.
 3. Run the postman collection using the command below:
@@ -101,4 +101,4 @@ NOTE: Using Newman CLI, postman collections can be hooked up with build systems 
 
 # Defects
 
-All the observations are documented as part of the “Defects.docx” document that would be available in the path where the repository is cloned.
+All the observations are documented as part of the â€œDefects.docxâ€ document that would be available in the path where the repository is cloned.
